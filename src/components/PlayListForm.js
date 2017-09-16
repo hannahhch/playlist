@@ -76,7 +76,6 @@ render(){
       </div>
     </form>
     <hr/>
-
   </div>
   )
 }
