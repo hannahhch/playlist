@@ -58,16 +58,16 @@ export default class PlayListForm extends Component {
     return (
       <form onSubmit ={this.handleSubmit}>
         <div className = "form-group">
-          <input onChange={this.handleUserNameChange} className = "form-control" name = "userName" type="text" value = {this.state.userName} placeholder="username: "/>
+          <input onChange={this.handleUserNameChange} className = "form-control" name = "userName" type="text" value = {this.state.userName} required placeholder="username: "/>
         </div>
         <div className = "form-group">
-          <input onChange={this.handleArtistChange} className = "form-control" name = "artist" type="text" value = {this.state.songArtist} placeholder="artist: "/>
+          <input onChange={this.handleArtistChange} className = "form-control" name = "artist" type="text" value = {this.state.songArtist} required placeholder="artist: "/>
         </div>
         <div className = "form-group">
-          <input onChange={this.handleSongChange} className = "form-control" name = "song" type="text" value = {this.state.songTitle} placeholder="song: "/>
+          <input onChange={this.handleSongChange} className = "form-control" name = "song" type="text" value = {this.state.songTitle} required placeholder="song: "/>
         </div>
         <div className = "form-group">
-        <input onChange={this.handleNotesChange} className = "form-control" name = "notes" type="text" value = {this.state.songNotes} placeholder="I love this song because... "/>
+        <input onChange={this.handleNotesChange} className = "form-control" name = "notes" type="text" value = {this.state.songNotes} required placeholder="I love this song because... "/>
       </div>
       <div className = "form-group">
         <input type="submit" className ="btn btn-primary" value="Add to Playlist" />

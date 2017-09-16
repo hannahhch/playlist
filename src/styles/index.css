@@ -49,9 +49,9 @@ form{
 }
 
 .single-card{
-  border: solid 1px black;
+  box-shadow: 1px 1px .5px #888888;
   background-color: white;
-  width: 25%;
+  width: 45%;
   margin: 10px;
   padding: 10px;
   font-family: 'Lato', sans-serif;
