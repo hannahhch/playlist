@@ -44,6 +44,14 @@ form{
   margin: 0 auto;
 }
 
+.btn-primary{
+  width: 170px;
+  background-color: #09A9C3;
+  text-transform: uppercase;
+  font-family: 'Exo 2', sans-serif;
+
+
+}
 .btn-primary:hover{
   cursor:pointer;
 }
@@ -64,4 +72,8 @@ form{
   width: 170vh;
   margin: 10px auto;
   justify-content: center;
+}
+
+.update-btn{
+  margin-bottom: 0;
 }

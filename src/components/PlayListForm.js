@@ -31,48 +31,61 @@ export default class PlayListForm extends Component {
   handleNotesChange(e){
     this.setState({songNotes: e.target.value});
   }
-
-  handleSubmit = (e) => {
-      e.preventDefault();
-      this.setState({userName: e.target.value, songTitle: e.target.value, songArtist: e.target.value, songNotes: e.target.value});
-      let listItem = JSON.stringify(this.state);
-
-      fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
-        method: "POST",
-        body: listItem,
-        headers: {
-          'Accept': 'application/json',
-          'Content-Type': 'application/json'
-      }
-    }
-    ).then(response => {
-      console.log(response, "yay");
-
-    }).catch(err => {
-      console.log(err, "boo!");
-    });
-    this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
+  fetchData = (e) => {
+    e.preventDefault();
+    fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
+      return results.json();
+    }).then(data => {
+      this.setState({songs: data});
+    })
   }
 
-  render(){
-    return (
-      <form onSubmit ={this.handleSubmit}>
-        <div className = "form-group">
-          <input onChange={this.handleUserNameChange} className = "form-control" name = "userName" type="text" value = {this.state.userName} required placeholder="username: "/>
-        </div>
-        <div className = "form-group">
-          <input onChange={this.handleArtistChange} className = "form-control" name = "artist" type="text" value = {this.state.songArtist} required placeholder="artist: "/>
-        </div>
-        <div className = "form-group">
-          <input onChange={this.handleSongChange} className = "form-control" name = "song" type="text" value = {this.state.songTitle} required placeholder="song: "/>
-        </div>
-        <div className = "form-group">
+  handleSubmit = (e) => {
+    e.preventDefault();
+    this.setState({userName: e.target.value, songTitle: e.target.value, songArtist: e.target.value, songNotes: e.target.value});
+    let listItem = JSON.stringify(this.state);
+
+    fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
+      method: "POST",
+      body: listItem,
+      headers: {
+        'Accept': 'application/json',
+        'Content-Type': 'application/json'
+      }
+    }
+  ).then(response => {
+    console.log(response, "yay");
+
+  }).catch(err => {
+    console.log(err, "boo!");
+  });
+  this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
+}
+
+render(){
+  return (
+    <div>
+    <form onSubmit ={this.handleSubmit}>
+      <div className = "form-group">
+        <input onChange={this.handleUserNameChange} className = "form-control" name = "userName" type="text" value = {this.state.userName} required placeholder="username: "/>
+      </div>
+      <div className = "form-group">
+        <input onChange={this.handleArtistChange} className = "form-control" name = "artist" type="text" value = {this.state.songArtist} required placeholder="artist: "/>
+      </div>
+      <div className = "form-group">
+        <input onChange={this.handleSongChange} className = "form-control" name = "song" type="text" value = {this.state.songTitle} required placeholder="song: "/>
+      </div>
+      <div className = "form-group">
         <input onChange={this.handleNotesChange} className = "form-control" name = "notes" type="text" value = {this.state.songNotes} required placeholder="I love this song because... "/>
       </div>
       <div className = "form-group">
         <input type="submit" className ="btn btn-primary" value="Add to Playlist" />
       </div>
-      </form>
-    )
-  }
+    </form>
+    <form onSubmit ={this.fetchData} className = "update-btn">
+      <input type = "submit" className ="btn btn-primary" value="Update Playlist"/>
+    </form>
+  </div>
+  )
+}
 }
