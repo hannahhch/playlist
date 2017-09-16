@@ -1,0 +1,48 @@
+body {
+  margin: 0;
+  padding: 0;
+  font-family: sans-serif;
+  background: linear-gradient(to right, #02A7C9 , #F9E702);
+}
+
+.nav-bar-components{
+  display: flex;
+  justify-content: space-between;
+  padding: 5px 20px;
+  width: 100%;
+  color: black;
+  background-color: white;
+  box-shadow: 1px 1px .5px #888888;
+
+}
+
+h2{
+  font-family: 'Exo 2', sans-serif;
+  color: #5ABE82;
+}
+
+h6{
+  font-family: 'Lato', sans-serif;
+}
+
+form{
+  width: 80%;
+  margin: 70px auto;
+  text-align: center;
+}
+
+.cd-icon{
+  width: 60px;
+  padding: 5px 0;
+  height: auto;
+}
+
+.form-control{
+  width: 60%;
+  height: 40px;
+  margin: 0 auto;
+}
+
+.btn-primary:hover{
+  cursor:pointer;
+}

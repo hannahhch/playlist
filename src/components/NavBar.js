@@ -7,10 +7,10 @@ export default class NavBar extends Component {
         <div className = "nav-bar-components">
           <div className = "left-nav-items">
             <h2>PROGRESSION</h2>
-            <h3>Live Playlist Creation</h3>
+            <h6>Live Playlist Creation - Share the Love!</h6>
           </div>
           <div className = "right-nav-items">
-            <p>Icon Here</p>
+            <img src = "cd_icon.png" alt ="cd icon" className = "cd-icon"/>
           </div>
         </div>
       </div>
