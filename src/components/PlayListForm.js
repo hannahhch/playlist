@@ -70,7 +70,7 @@ export default class PlayListForm extends Component {
         <input onChange={this.handleNotesChange} className = "form-control" name = "notes" type="text" value = {this.state.songNotes} placeholder="I love this song because... "/>
       </div>
       <div className = "form-group">
-        <input type="submit" className ="btn btn-primary" value="Submit" />
+        <input type="submit" className ="btn btn-primary" value="Add to Playlist" />
       </div>
       </form>
     )
