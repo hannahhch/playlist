@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PlayListItem from '../components/PlayListItem.js';
 
 export default class PlayList extends Component {
   constructor(props){
@@ -8,6 +9,16 @@ export default class PlayList extends Component {
       songs: []
     }
   }
+
+  fetchData = (e) => {
+    e.preventDefault();
+    fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
+      return results.json();
+    }).then(data => {
+      this.setState({songs: data});
+    })
+  }
+
   componentDidMount(){
     fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
       return results.json();
@@ -18,14 +29,10 @@ export default class PlayList extends Component {
   render(){
     return(
       <div className = "card-holder">
-        {this.state.songs.map(song =>(
-          <div className = 'single-card'>
-            <h2>{song.songTitle}</h2>
-            <h5>{song.songArtist}</h5>
-            <p>Selected By: {song.userName}</p>
-            <p>{song.userName} loves this track because {song.songNotes}</p>
-        </div>
-        ))}
+        <form onSubmit ={this.fetchData} className = "update-btn">
+          <input type = "submit" className ="btn btn-primary" value="Update Playlist"/>
+        </form>
+        {this.state.songs.map(song => <PlayListItem song={ song } key={ song._id }/>)}
       </div>
     )
   }

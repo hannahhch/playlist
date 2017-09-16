@@ -31,14 +31,7 @@ export default class PlayListForm extends Component {
   handleNotesChange(e){
     this.setState({songNotes: e.target.value});
   }
-  fetchData = (e) => {
-    e.preventDefault();
-    fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
-      return results.json();
-    }).then(data => {
-      this.setState({songs: data});
-    })
-  }
+
 
   handleSubmit = (e) => {
     e.preventDefault();
@@ -82,9 +75,8 @@ render(){
         <input type="submit" className ="btn btn-primary" value="Add to Playlist" />
       </div>
     </form>
-    <form onSubmit ={this.fetchData} className = "update-btn">
-      <input type = "submit" className ="btn btn-primary" value="Update Playlist"/>
-    </form>
+    <hr/>
+
   </div>
   )
 }

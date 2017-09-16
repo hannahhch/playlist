@@ -28,7 +28,7 @@ h6{
 
 form{
   width: 80%;
-  margin: 70px auto;
+  margin: 40px auto;
   text-align: center;
 }
 
@@ -70,10 +70,14 @@ form{
   display: flex;
   flex-wrap: wrap;
   width: 170vh;
-  margin: 10px auto;
+  margin: -15px auto;
   justify-content: center;
 }
 
 .update-btn{
-  margin-bottom: 0;
+  margin-bottom: 10px;
+}
+
+h4{
+  color: #06A8C6;
 }
