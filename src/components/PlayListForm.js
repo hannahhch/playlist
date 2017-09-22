@@ -8,7 +8,7 @@ export default class PlayListForm extends Component {
     this.handleSongChange = this.handleSongChange.bind(this);
     this.handleNotesChange = this.handleNotesChange.bind(this);
     this.handleSubmit = this.handleSubmit.bind(this);
-
+//set state for all items as null
     this.state = {
       userName: "",
       songArtist: "",
@@ -16,6 +16,8 @@ export default class PlayListForm extends Component {
       songNotes: ""
     }
   }
+
+  //on name change set state to the target value
   handleUserNameChange(e){
     this.setState({userName: e.target.value});
   }
@@ -38,6 +40,7 @@ export default class PlayListForm extends Component {
     this.setState({userName: e.target.value, songTitle: e.target.value, songArtist: e.target.value, songNotes: e.target.value});
     let listItem = JSON.stringify(this.state);
 
+//post the new data to the api
     fetch("https://tiny-lasagna-server.herokuapp.com/collections/playlisting", {
       method: "POST",
       body: listItem,
@@ -54,7 +57,7 @@ export default class PlayListForm extends Component {
   });
   this.setState({userName: '', songNotes: '', songArtist: '', songTitle:''});
 }
-
+//render form to page and let it handle submit and name changes 
 render(){
   return (
     <div>

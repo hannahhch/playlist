@@ -4,12 +4,13 @@ import PlayListItem from '../components/PlayListItem.js';
 export default class PlayList extends Component {
   constructor(props){
     super(props);
-
+    // sets state to empty array //
     this.state = {
       songs: []
     }
   }
 
+  //get the data from api and then sets song state to the data
   fetchData = (e) => {
     e.preventDefault();
     fetch('https://tiny-lasagna-server.herokuapp.com/collections/playlisting').then(results => {
@@ -26,6 +27,8 @@ export default class PlayList extends Component {
       this.setState({songs: data});
     })
   }
+//on submit, fetch new data
+//map over the songs and store the playlist items 
   render(){
     return(
       <div className = "card-holder">

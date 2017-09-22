@@ -1,5 +1,6 @@
 import React from 'react';
 
+//get information from API and render to page as its own div
 
 const PlayListItem = ({ song }) => (
   <div className = 'single-card' key={song._id}>
